@@ -1,4 +1,3 @@
-
 const api = "https://reactnd-books-api.udacity.com"
 
 
@@ -15,12 +14,12 @@ const headers = {
 export const get = (bookId) =>
   fetch(`${api}/books/${bookId}`, { headers })
     .then(res => res.json())
-    .then(data => data.book)
+    .then(data => data.book);
 
 export const getAll = () =>
   fetch(`${api}/books`, { headers })
     .then(res => res.json())
-    .then(data => data.books)
+    .then(data => data.books);
 
 export const update = (book, shelf) =>
   fetch(`${api}/books/${book.id}`, {
@@ -30,7 +29,7 @@ export const update = (book, shelf) =>
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ shelf })
-  }).then(res => res.json())
+  }).then(res => res.json());
 
 export const search = (query) =>
   fetch(`${api}/search`, {
@@ -41,4 +40,35 @@ export const search = (query) =>
     },
     body: JSON.stringify({ query })
   }).then(res => res.json())
-    .then(data => data.books)
+    .then(data => data.books);
+
+export const shelves = () => {
+    const shelves = [
+        {
+            id: 1,
+            name: 'currentlyReading',
+            title: 'Currently Reading',
+            active: true,
+        },
+        {
+            id: 2,
+            name: 'wantToRead',
+            title: 'Want to Read',
+            active: true,
+        },
+        {
+            id: 3,
+            name: 'read',
+            title: 'Read',
+            active: true,
+        },
+        {
+            id: 4,
+            name: 'none',
+            title: 'None',
+            active: false,
+        }
+    ];
+
+    return new Promise((resolve, reject) => resolve(shelves));
+};
