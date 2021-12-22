@@ -93,9 +93,9 @@ class Shelves extends Component {
     onBookShelfChange = (shelfName, book) => {
         BooksAPI.update(book, shelfName)
             .then((shelvesBooks) => {
-                this.setState((currentState) => ({
+                this.setState(() => ({
                     shelvesBooks: shelvesBooks,
-                    books: this.putThatBookToShelf(currentState.books, shelfName, book)
+                    books: this.putThatBookToShelf(this.props.books, shelfName, book)
                 }))
             });
     }
