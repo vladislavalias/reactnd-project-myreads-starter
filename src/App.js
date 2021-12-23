@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import { Route, Routes } from "react-router-dom";
+import {Link, Route, Routes} from "react-router-dom";
 import SearchPage from "./SearchPage";
 import Shelves, {Book, Shelf} from "./Shelves";
 import * as BooksAPI from "./BooksAPI";
@@ -37,12 +37,21 @@ class BooksApp extends Component {
       <div className="app">
         <Routes>
           <Route path={BooksApp.PAGE_SEARCH} element={
-              // do we need to exclude already added books?
-              <SearchPage shelves={shelves.filter(shelf => shelf.active)} books={books} />
+              <SearchPage shelves={shelves} books={books} />
           } />
           <Route exact path={BooksApp.PAGE_MAIN} element={
             <div>
               <Shelves shelves={shelves} books={books} />
+            </div>
+          } />
+          <Route path="*" element={
+            <div>
+                There is no such page, sorry.
+                Please reach
+                <ol>
+                    <li><Link to={BooksApp.PAGE_MAIN}>Main page</Link></li>
+                    <li><Link to={BooksApp.PAGE_SEARCH}>Search page</Link></li>
+                </ol>
             </div>
           } />
         </Routes>

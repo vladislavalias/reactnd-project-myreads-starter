@@ -5,7 +5,7 @@ const BookShelfChanger = (props) => (
     <div className="book-shelf-changer">
         <select
             onChange={(event) => props.onBookShelfChange(event.target.value, props.book)}
-            defaultValue={props.book.shelf || 'move'}
+            defaultValue={props.book.shelf || 'none'}
         >
             <option value="move" disabled>Move to...</option>
             {props.shelves && props.shelves.map(shelf => (
@@ -24,7 +24,6 @@ export const BookRender = (props) => (
                     <BookShelfChanger shelves={props.shelves} book={props.book} onBookShelfChange={props.onBookShelfChange} />
                 )}
             </div>
-            <div className="book-title">{props.book.id}</div>
             <div className="book-title" title={props.book.description}>{props.book.title}</div>
             <div className="book-authors">{props.book.authors ? props.book.authors.join(', ') : 'Unknown'}</div>
         </div>

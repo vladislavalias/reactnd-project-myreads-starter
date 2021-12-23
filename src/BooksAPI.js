@@ -48,25 +48,21 @@ export const shelves = () => {
             id: 1,
             name: 'currentlyReading',
             title: 'Currently Reading',
-            active: true,
         },
         {
             id: 2,
             name: 'wantToRead',
             title: 'Want to Read',
-            active: true,
         },
         {
             id: 3,
             name: 'read',
             title: 'Read',
-            active: true,
         },
         {
             id: 4,
             name: 'none',
             title: 'None',
-            active: false,
         }
     ];
 

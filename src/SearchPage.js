@@ -77,7 +77,7 @@ class SearchPage extends Component {
     mergeBookShelves (foundBooks, books) {
         if (foundBooks) {
             return foundBooks.map(foundBook => {
-                const bookFromShelf = books.filter(book => book.id === foundBook.id).shift();
+                const bookFromShelf = books.find(book => book.id === foundBook.id);
                 return bookFromShelf || foundBook;
             });
         }
